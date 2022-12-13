@@ -10,16 +10,23 @@ public class PlungerScript : MonoBehaviour
     private KeyCode _key;
 
     [SerializeField]
-    public Vector3 vectorForce;
+    private Vector3 _vectorForce;
 
     [SerializeField]
     [Range(0, 30)]
-    public int maxTimeSec;
+    private int _maxTimeSec;
 
     private Rigidbody _ball;
-    public TimeSpan timeSpan;
+    private TimeSpan _timeSpan;
 
     private Stopwatch _stopwatch = new();
+
+    public Vector3 VectorForce { get => _vectorForce; }
+
+    public int MaxTimeSec { get => _maxTimeSec; }
+
+    public TimeSpan TimeSpan { get => _timeSpan; }
+
 
     private void Update()
     {
@@ -32,7 +39,7 @@ public class PlungerScript : MonoBehaviour
             if (Input.GetKeyUp(_key))
             {
                 _stopwatch.Stop();
-                timeSpan = _stopwatch.Elapsed;
+                _timeSpan = _stopwatch.Elapsed;
                 _stopwatch.Reset();
                 Hit();
             }
@@ -47,23 +54,23 @@ public class PlungerScript : MonoBehaviour
 
     private void Hit()
     {
-        _ball.AddForce(vectorForce.x, vectorForce.y * CoefficientPower(), vectorForce.z, ForceMode.Impulse);
+        _ball.AddForce(_vectorForce.x, _vectorForce.y * CoefficientPower(), _vectorForce.z, ForceMode.Impulse);
         _ball = null;
     }
 
     private float CoefficientPower()
     {
         float coefficient;
-        float timePressButton = timeSpan.Seconds + timeSpan.Milliseconds / 1000f;
-        
+        float timePressButton = _timeSpan.Seconds + _timeSpan.Milliseconds / 1000f;
 
-        if (timePressButton > maxTimeSec)
+
+        if (timePressButton > _maxTimeSec)
         {
             coefficient = 1f;
         }
         else
         {
-            coefficient = timePressButton  / maxTimeSec;
+            coefficient = timePressButton / _maxTimeSec;
         }
         return coefficient;
     }
