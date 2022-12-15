@@ -18,14 +18,13 @@ public class PlungerScript : MonoBehaviour
 
     private Rigidbody _ball;
     private TimeSpan _timeSpan;
-
+    private bool _pressedKey;
     private Stopwatch _stopwatch = new();
 
     public Vector3 VectorForce { get => _vectorForce; }
-
     public int MaxTimeSec { get => _maxTimeSec; }
-
     public TimeSpan TimeSpan { get => _timeSpan; }
+    public bool PressedKey { get => _pressedKey; }
 
 
     private void Update()
@@ -35,11 +34,13 @@ public class PlungerScript : MonoBehaviour
             if (Input.GetKeyDown(_key))
             {
                 _stopwatch.Start();
+                _pressedKey = true;
             }
             if (Input.GetKeyUp(_key))
             {
                 _stopwatch.Stop();
                 _timeSpan = _stopwatch.Elapsed;
+                _pressedKey = false;
                 _stopwatch.Reset();
                 Hit();
             }
