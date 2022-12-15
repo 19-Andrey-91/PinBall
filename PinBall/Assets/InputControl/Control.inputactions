@@ -1,0 +1,66 @@
+{
+    "name": "Control",
+    "maps": [
+        {
+            "name": "LevelsControl",
+            "id": "b1f8af94-d555-4844-910c-bed74ffafa4c",
+            "actions": [
+                {
+                    "name": "LeftLift",
+                    "type": "Button",
+                    "id": "e0a7c95e-99e8-41a2-a368-7f1715cbd7d1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightLift",
+                    "type": "Button",
+                    "id": "d34de4ca-b70d-4f3d-84bd-02d0530a2327",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "be5cd7f7-1cfa-49f7-b6ff-dddc9baaeafc",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard",
+                    "action": "LeftLift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29ba0a59-47f4-4952-8f32-fb8193c56659",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard",
+                    "action": "RightLift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "KeyBoard",
+            "bindingGroup": "KeyBoard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
