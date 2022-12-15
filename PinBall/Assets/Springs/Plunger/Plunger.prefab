@@ -111,5 +111,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: 32
-  vectorPower: {x: 0, y: 0, z: 0}
-  maxTimeSec: 5
+  _vectorForce: {x: 0, y: 50, z: 0}
+  _maxTimeSec: 0

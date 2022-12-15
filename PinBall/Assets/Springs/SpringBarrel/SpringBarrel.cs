@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SpringBarrel : MonoBehaviour
+public class SpringBarrel : MonoBehaviour, IPointGeter
 {
     [SerializeField]
     private float springPower;
+
+    public PointSprings Spring { get; private set; } = PointSprings.Barrel;
 
     private void OnCollisionEnter(Collision collision)
     {

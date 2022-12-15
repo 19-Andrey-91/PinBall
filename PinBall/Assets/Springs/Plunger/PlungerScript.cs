@@ -75,5 +75,4 @@ public class PlungerScript : MonoBehaviour
         }
         return coefficient;
     }
-
 }
